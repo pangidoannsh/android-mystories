@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyStories アプリ</string>
+    <string name="new_story_title">新しいストーリー</string>
+    <string name="hello_blank_fragment">こんにちは、空白のフラグメント</string>
+    <string name="register">登録</string>
+    <string name="login">ログイン</string>
+    <string name="stories_title">人々のストーリー</string>
+    <string name="greeting">こんにちは、%s さん</string>
+    <string name="name_hint">名前</string>
+    <string name="email_hint">メールアドレス</string>
+    <string name="password_hint">パスワード</string>
+    <string name="submit">送信</string>
+    <string name="not_have_account_yet">まだアカウントを持っていませんか？</string>
+    <string name="app_exit_warn">アプリを終了するにはもう一度バックを押してください</string>
+    <string name="error_digit_password">パスワードは少なくとも6文字必要です</string>
+    <string name="success_login_message">ログイン成功</string>
+    <string name="failure_login_message">ログインに失敗しました。メールアドレスとパスワードを確認してください</string>
+    <string name="failure_get_list_stories">申し訳ありませんが、ストーリーを取得できませんでした :(</string>
+    <string name="error_register_message">登録に失敗しました。もう一度登録してください！</string>
+    <string name="success_register_message">登録が成功しました。ログインしましょう！</string>
+    <string name="opening">今日どんな話をしたいですか？</string>
+    <string name="title_story_dummy">タイトル</string>
+    <string name="date_story_dummy">2023/10/12</string>
+    <string name="label_gallery">ギャラリー</string>
+    <string name="input_description_label">説明</string>
+    <string name="permission_request_granted">許可リクエストが承認されました</string>
+    <string name="permission_request_danied">許可リクエストが拒否されました</string>
+    <string name="empty_image_onsubmit">ギャラリーから1つの画像を選択するか、写真を撮影してください</string>
+    <string name="empty_description_onsubmit">説明フィールドを記入してください</string>
+    <string name="success_create_story">ストーリーが正常に作成されました</string>
+    <string name="failure_create_story">ストーリーの作成に失敗しました</string>
+    <string name="label_language">言語</string>
+    <string name="label_night_mode">ナイトモード</string>
+    <string name="active">アクティブ</string>
+    <string name="non_active">非アクティブ</string>
+    <string name="settings_title">設定</string>
+    <string name="settings_theme_title">ダークモード設定</string>
+    <string name="description_story_dummy">lorem ipsum dolor aowkaowkd awaawokdaw aowdk awokdawd awodkaw daowkdao dawd awd kawodkawd</string>
+    <string name="detail_title">話</string>
+    <string name="favorite_is_empty">お気に入りのストーリーはまだありません！</string>
+    <string name="favorite_title">お気に入りのストーリー</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="label_logout">Log out</string>
+    <string name="logout_confirmation">アカウントからログアウトしてもよろしいですか？</string>
+    <string name="yes">はい</string>
+    <string name="cancel">キャンセル</string>
+    <string name="email_already_taken">このメールアドレスはすでに使用されています。</string>
+
+</resources>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#223462</color>
+    <color name="primary_pressed">#091B49</color>
+    <color name="primary_disable">#B3223462</color>
+    <color name="secondary">#FFBA2D</color>
+    <color name="ternary">#4094FE</color>
+    <color name="cream">#FFFFE4</color>
+    <color name="gray500">#676767</color>
+    <color name="gray400">#7A7A7A</color>
+    <color name="gray600">#A7A7A7</color>
+    <color name="gray700">#1E1E1E</color>
+    <color name="gray100">#E7E7E7</color>
+    <color name="black">#FF000000</color>
+    <color name="black_low">#99050505</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="text">@color/gray700</color>
+    <color name="text_secondary">@color/gray600</color>
+    <color name="actionbar">@color/primary</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="ic_clear_color">@color/gray600</color>
+    <color name="bg_ic_clear_color">@color/gray100</color>
+</resources>

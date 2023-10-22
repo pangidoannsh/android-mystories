@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyStories App</string>
+    <string name="detail_title">Story</string>
+
+    <string name="new_story_title">Nouvelle Histoire</string>
+    <string name="hello_blank_fragment">Bonjour fragment vide</string>
+    <string name="register">S\'inscrire</string>
+    <string name="login">Se connecter</string>
+    <string name="stories_title">Histoires des Gens</string>
+    <string name="greeting">Bonjour, %s</string>
+    <string name="name_hint">Nom</string>
+    <string name="email_hint">E-mail</string>
+    <string name="password_hint">Mot de passe</string>
+    <string name="submit">Soumettre</string>
+    <string name="not_have_account_yet">Vous n\'avez pas encore de compte ?</string>
+    <string name="app_exit_warn">Appuyez à nouveau sur Retour pour quitter l\'application</string>
+    <string name="error_digit_password">Le mot de passe doit comporter au moins 6 caractères</string>
+    <string name="success_login_message">Connexion réussie</string>
+    <string name="failure_login_message">Échec de la connexion. Veuillez vérifier votre e-mail et votre mot de passe</string>
+    <string name="failure_get_list_stories">Malheureusement, erreur lors de la récupération des histoires :(</string>
+    <string name="error_register_message">Échec de l\'inscription, veuillez vous inscrire à nouveau !</string>
+    <string name="success_register_message">Inscription réussie, connectez-vous !</string>
+    <string name="opening">Quelle histoire souhaitez-vous raconter aujourd\'hui ?</string>
+    <string name="title_story_dummy">Titre</string>
+    <string name="date_story_dummy">12/10/2023</string>
+    <string name="label_gallery">Galerie</string>
+    <string name="input_description_label">Description</string>
+    <string name="permission_request_granted">Demande d\'autorisation acceptée</string>
+    <string name="permission_request_danied">Demande d\'autorisation refusée</string>
+    <string name="empty_image_onsubmit">Veuillez choisir une image dans la galerie ou prendre une photo</string>
+    <string name="empty_description_onsubmit">Veuillez remplir le champ de description</string>
+    <string name="success_create_story">Histoire créée avec succès</string>
+    <string name="failure_create_story">Échec de la création de l\'histoire</string>
+    <string name="label_language">Langue</string>
+    <string name="label_night_mode">Mode Nuit</string>
+    <string name="active">Actif</string>
+    <string name="non_active">Non actif</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_theme_title">Paramètres du Mode Sombre</string>
+    <string name="description_story_dummy">lorem ipsum dolor aowkaowkd awaawokdaw aowdk awokdawd awodkaw daowkdao dawd awd kawodkawd</string>
+    <string name="favorite_is_empty">Pas encore de histoires favorites !</string>
+    <string name="favorite_title">Histoires préférées</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="label_logout">Log out</string>
+    <string name="logout_confirmation">Êtes-vous sûr de vouloir vous déconnecter de votre compte ?</string>
+    <string name="yes">Oui</string>
+    <string name="cancel">Annuler</string>
+    <string name="email_already_taken">L\'adresse e-mail est déjà prise</string>
+
+</resources>

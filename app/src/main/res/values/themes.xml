@@ -1,0 +1,59 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MyStories" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <item name="colorPrimary">@color/primary</item>
+        <item name="colorSecondary">@color/secondary</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
+    <style name="Theme.MyStories" parent="Base.Theme.MyStories">
+        <item name="android:fontFamily">@font/poppins_regular</item>
+        <item name="colorAccent">@color/cream</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="textInputStyle">@style/MyTextInputStyle</item>
+        <item name="floatingActionButtonStyle">@style/FloatingButtonStyle</item>
+    </style>
+
+    <style name="MyTextInputStyle" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeWidth">0.5dp</item>
+    </style>
+
+    <style name="HeroText" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="FragmentLabel" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="fontFamily">@font/poppins_medium</item>
+    </style>
+
+    <style name="FloatingButtonStyle" parent="Widget.Design.FloatingActionButton">
+        <item name="shapeAppearanceOverlay">@style/FabShapeStyle</item>
+    </style>
+
+    <style name="FabShapeStyle" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerSize">8dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
+
+    <style name="ToolbarTitleText">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="Theme.MyStories.AppWidgetContainerParent" parent="@android:style/Theme.DeviceDefault">
+        <!-- Radius of the outer bound of widgets to make the rounded corners -->
+        <item name="appWidgetRadius">16dp</item>
+        <!--
+        Radius of the inner view's bound of widgets to make the rounded corners.
+        It needs to be 8dp or less than the value of appWidgetRadius
+        -->
+        <item name="appWidgetInnerRadius">8dp</item>
+    </style>
+
+    <style name="Theme.MyStories.AppWidgetContainer" parent="Theme.MyStories.AppWidgetContainerParent">
+        <!-- Apply padding to avoid the content of the widget colliding with the rounded corners -->
+        <item name="appWidgetPadding">16dp</item>
+    </style>
+</resources>

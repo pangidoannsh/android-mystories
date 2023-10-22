@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_home"
+    tools:context=".view.home.HomeActivity">
+
+
+    <ImageButton
+        android:id="@+id/btn_menu"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="34dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_more"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/greetings" />
+
+    <ImageButton
+        android:id="@+id/btn_to_favorite"
+        android:layout_width="42dp"
+        android:layout_height="42dp"
+        android:layout_marginEnd="8dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/ic_favorite_full"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
+        app:layout_constraintTop_toTopOf="@+id/greetings" />
+    <TextView
+        android:id="@+id/greetings"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/greeting"
+        style="@style/HeroText"
+        android:textSize="26sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/opening"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="80dp"
+        android:fontFamily="@font/poppins_light"
+        android:text="@string/opening"
+        style="@style/HeroText"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greetings" />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/opening"
+        app:navGraph="@navigation/main_nav" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_add_story"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="?attr/colorPrimary"
+        android:src="@drawable/ic_add"
+        android:tintMode="src_atop"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentContainerView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fragmentContainerView" />
+</androidx.constraintlayout.widget.ConstraintLayout>

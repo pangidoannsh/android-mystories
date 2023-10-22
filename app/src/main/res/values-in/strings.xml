@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MyStories App</string>
+
+    <string name="new_story_title">Cerita Baru</string>
+    <string name="hello_blank_fragment">Halo fragmen kosong</string>
+    <string name="register">Daftar</string>
+    <string name="login">Masuk</string>
+    <string name="stories_title">Cerita Orang-orang</string>
+    <string name="greeting">Hai, %s</string>
+    <string name="name_hint">Nama</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Kata Sandi</string>
+    <string name="submit">Kirim</string>
+    <string name="not_have_account_yet">Belum memiliki akun?</string>
+    <string name="app_exit_warn">Tekan kembali lagi untuk keluar dari aplikasi</string>
+    <string name="error_digit_password">Kata sandi harus memiliki setidaknya 6 karakter</string>
+    <string name="success_login_message">Login berhasil</string>
+    <string name="failure_login_message">Login gagal. Periksa email dan kata sandi Anda</string>
+    <string name="failure_get_list_stories">Sayangnya, Terjadi kesalahan saat mengambil Cerita :(</string>
+    <string name="error_register_message">Gagal mendaftar, silakan daftar lagi!</string>
+    <string name="success_register_message">Pendaftaran berhasil, ayo Masuk!</string>
+    <string name="opening">Apa cerita yang ingin Anda ceritakan hari ini?</string>
+    <string name="title_story_dummy">Judul</string>
+    <string name="date_story_dummy">12/10/2023</string>
+    <string name="label_gallery">Galeri</string>
+    <string name="input_description_label">Deskripsi</string>
+    <string name="permission_request_granted">Permintaan izin disetujui</string>
+    <string name="permission_request_danied">Permintaan izin ditolak</string>
+    <string name="empty_image_onsubmit">Silakan pilih satu gambar dari galeri atau ambil foto</string>
+    <string name="empty_description_onsubmit">Silakan isi kolom deskripsi</string>
+    <string name="success_create_story">Cerita berhasil dibuat</string>
+    <string name="failure_create_story">Gagal membuat cerita</string>
+    <string name="label_language">Bahasa</string>
+    <string name="label_night_mode">Mode Malam</string>
+    <string name="active">Aktif</string>
+    <string name="non_active">Non-Aktif</string>
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_theme_title">Pengaturan Mode Malam</string>
+    <string name="description_story_dummy">lorem ipsum dolor aowkaowkd awaawokdaw aowdk awokdawd awodkaw daowkdao dawd awd kawodkawd</string>
+    <string name="detail_title">Cerita</string>
+    <string name="favorite_is_empty">Belum ada cerita favorit</string>
+    <string name="favorite_title">Cerita Favorit</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="app_widget_description">This is an app widget description</string>
+    <string name="label_logout">Keluar</string>
+    <string name="logout_confirmation">Apakah Anda yakin ingin keluar dari akun Anda?</string>
+    <string name="yes">Ya</string>
+    <string name="cancel">Batal</string>
+    <string name="email_already_taken">Email sudah digunakan</string>
+
+</resources>
