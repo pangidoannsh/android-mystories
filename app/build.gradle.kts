@@ -5,6 +5,7 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-parcelize")
     id("kotlin-kapt")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
 }
 
 android {
@@ -46,6 +47,7 @@ android {
 
 dependencies {
     implementation("androidx.room:room-common:2.5.2")
+    implementation("com.google.android.gms:play-services-maps:18.2.0")
     val cameraxVersion = "1.2.3"
 
     implementation("androidx.camera:camera-camera2:$cameraxVersion")

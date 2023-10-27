@@ -11,6 +11,7 @@ import com.pangidoannsh.mystories.R
 import com.pangidoannsh.mystories.databinding.ActivityHomeBinding
 import com.pangidoannsh.mystories.view.ViewModelFactory
 import com.pangidoannsh.mystories.view.favorite.FavoriteStoriesActivity
+import com.pangidoannsh.mystories.view.maps.StoriesMapsActivity
 import com.pangidoannsh.mystories.view.settings.SettingsActivity
 import com.pangidoannsh.mystories.view.story.CreateStoryActivity
 import com.pangidoannsh.mystories.view.story.StoriesFragment
@@ -67,6 +68,9 @@ class HomeActivity : AppCompatActivity() {
         }
         binding.btnToFavorite.setOnClickListener {
             startActivity(Intent(this, FavoriteStoriesActivity::class.java))
+        }
+        binding.btnToMap.setOnClickListener {
+            startActivity(Intent(this, StoriesMapsActivity::class.java))
         }
 
     }

@@ -19,45 +19,51 @@
 
     <ImageButton
         android:id="@+id/btn_to_favorite"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
         android:src="@drawable/ic_favorite_full"
-        app:layout_constraintEnd_toStartOf="@+id/btn_to_map"
-        app:layout_constraintTop_toTopOf="@+id/greetings" />
+        app:layout_constraintStart_toStartOf="@+id/opening"
+        app:layout_constraintTop_toBottomOf="@+id/opening" />
 
     <ImageButton
         android:id="@+id/btn_to_map"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        android:background="@android:color/transparent"
-        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
-        app:layout_constraintTop_toTopOf="@+id/btn_to_favorite"
-        app:srcCompat="@drawable/ic_map" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_button"
+        android:padding="4dp"
+        android:src="@drawable/ic_place"
+        app:layout_constraintStart_toEndOf="@+id/btn_to_favorite"
+        app:layout_constraintTop_toBottomOf="@+id/opening" />
 
     <TextView
         android:id="@+id/greetings"
-        style="@style/HeroText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="80dp"
         android:fontFamily="@font/poppins_medium"
         android:text="@string/greeting"
+        style="@style/HeroText"
         android:textSize="26sp"
-        app:layout_constraintEnd_toStartOf="@+id/btn_to_favorite"
+        app:layout_constraintEnd_toStartOf="@+id/btn_menu"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/opening"
-        style="@style/HeroText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="80dp"
         android:fontFamily="@font/poppins_light"
         android:text="@string/opening"
+        style="@style/HeroText"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/btn_menu"
         app:layout_constraintHorizontal_bias="0.472"
@@ -69,12 +75,12 @@
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/opening"
+        app:layout_constraintTop_toBottomOf="@+id/btn_to_favorite"
         app:navGraph="@navigation/main_nav" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
