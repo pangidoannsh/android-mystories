@@ -23,6 +23,7 @@
     <string name="title_story_dummy">Judhul</string>
     <string name="date_story_dummy">12/10/2023</string>
     <string name="label_gallery">Galeri</string>
+    <string name="use_location">Lokasi</string>
     <string name="input_description_label">Pamamben</string>
     <string name="permission_request_granted">Permohonan izin disetujoni</string>
     <string name="permission_request_danied">Permohonan izin ditolak</string>
@@ -48,5 +49,6 @@
     <string name="yes">Iya</string>
     <string name="cancel">Batal</string>
     <string name="email_already_taken">Alamat surel wis diangkat</string>
+    <string name="cant_find_location">Ora bisa nemu lokasi</string>
 
 </resources>

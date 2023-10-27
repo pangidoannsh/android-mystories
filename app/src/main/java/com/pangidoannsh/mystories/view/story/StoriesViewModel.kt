@@ -6,6 +6,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.android.gms.maps.model.LatLng
 import com.pangidoannsh.mystories.R
 import com.pangidoannsh.mystories.data.api.ApiConfig
 import com.pangidoannsh.mystories.data.api.response.CreateStoryResponse
@@ -33,6 +34,18 @@ class StoriesViewModel(private val application: Application) : ViewModel() {
 
     private val _isCreated = MutableLiveData<Boolean>()
     val isCreated: LiveData<Boolean> = _isCreated
+
+    private val latLngStory = MutableLiveData<LatLng>()
+
+    private val _locationCaptured = MutableLiveData(false)
+    val locationCaptured: LiveData<Boolean> = _locationCaptured
+    fun setLocationCaptured(isCaptured: Boolean) {
+        _locationCaptured.value = isCaptured
+    }
+
+    fun setLatLngStory(lat: Double, lng: Double) {
+        latLngStory.value = LatLng(lat, lng)
+    }
 
     fun getListStories() {
         setIsLoading(true)
@@ -77,16 +90,32 @@ class StoriesViewModel(private val application: Application) : ViewModel() {
         }
         imageUri?.let {
             setIsLoading(true)
+            val isUseLocation = _locationCaptured.value ?: false
             val imageFile = uriToFile(imageUri, application).reduceFileImage()
 
             val requestBody = description.toRequestBody("text/plain".toMediaType())
             val requestImageFile = imageFile.asRequestBody("image/jpeg".toMediaType())
+
+            val lat = latLngStory.value?.latitude
+            val lon = latLngStory.value?.longitude
+
+            val requestLat = lat.toString().toRequestBody("text/plain".toMediaType())
+            val requestLon = lon.toString().toRequestBody("text/plain".toMediaType())
+
             val multipartBody = MultipartBody.Part.createFormData(
                 "photo",
                 imageFile.name,
                 requestImageFile
             )
-            val client = ApiConfig.getApiService().createStory(multipartBody, requestBody)
+
+            val apiService = ApiConfig.getApiService()
+
+            val client = if (isUseLocation) apiService.createStory(
+                multipartBody,
+                requestBody,
+                requestLat,
+                requestLon
+            ) else apiService.createStory(multipartBody, requestBody)
             client.enqueue(object : Callback<CreateStoryResponse> {
                 override fun onResponse(
                     call: Call<CreateStoryResponse>,

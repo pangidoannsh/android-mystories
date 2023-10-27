@@ -24,6 +24,7 @@
     <string name="title_story_dummy">Judul</string>
     <string name="date_story_dummy">12/10/2023</string>
     <string name="label_gallery">Galeri</string>
+    <string name="use_location">Lokasi</string>
     <string name="input_description_label">Deskripsi</string>
     <string name="permission_request_granted">Permintaan izin disetujui</string>
     <string name="permission_request_danied">Permintaan izin ditolak</string>
@@ -49,5 +50,6 @@
     <string name="yes">Ya</string>
     <string name="cancel">Batal</string>
     <string name="email_already_taken">Email sudah digunakan</string>
+    <string name="cant_find_location">Tidak dapat menemukan lokasi</string>
 
 </resources>

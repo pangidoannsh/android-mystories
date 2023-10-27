@@ -25,6 +25,7 @@
     <string name="title_story_dummy">Titel</string>
     <string name="date_story_dummy">12.10.2023</string>
     <string name="label_gallery">Galerie</string>
+    <string name="use_location">Ort</string>
     <string name="input_description_label">Beschreibung</string>
     <string name="permission_request_granted">Berechtigungsanfrage genehmigt</string>
     <string name="permission_request_danied">Berechtigungsanfrage abgelehnt</string>
@@ -49,5 +50,6 @@
     <string name="yes">Ja</string>
     <string name="cancel">Abbrechen</string>
     <string name="email_already_taken">Die E-Mail-Adresse ist bereits vergeben</string>
+    <string name="cant_find_location">Ort nicht gefunden</string>
 
 </resources>

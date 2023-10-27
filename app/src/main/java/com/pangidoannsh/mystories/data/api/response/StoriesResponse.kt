@@ -45,6 +45,10 @@ data class StoryResponse(
 
     @field:SerializedName("description")
     override val description: String,
+
+    val lat: Double = 0.0,
+
+    val lon: Double = 0.0,
 ) : Parcelable, StoryInterface
 
 data class CreateStoryResponse(

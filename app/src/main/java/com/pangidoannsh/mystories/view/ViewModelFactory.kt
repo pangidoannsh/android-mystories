@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.pangidoannsh.mystories.view.auth.LoginViewModel
 import com.pangidoannsh.mystories.view.favorite.FavoriteStoriesViewModel
 import com.pangidoannsh.mystories.view.home.UserViewModel
+import com.pangidoannsh.mystories.view.maps.StoriesMapViewModel
 import com.pangidoannsh.mystories.view.settings.SettingsViewModel
 import com.pangidoannsh.mystories.view.splash.SplashViewModel
 import com.pangidoannsh.mystories.view.story.StoriesViewModel
@@ -45,6 +46,8 @@ class ViewModelFactory private constructor(private val application: Application)
             return FavoriteStoriesViewModel(application) as T
         } else if (modelClass.isAssignableFrom(DetailStoryViewModel::class.java)) {
             return DetailStoryViewModel(application) as T
+        }else if (modelClass.isAssignableFrom(StoriesMapViewModel::class.java)) {
+            return StoriesMapViewModel(application) as T
         }
 
         throw IllegalArgumentException("Unknown ViewModel class: ${modelClass.name}")

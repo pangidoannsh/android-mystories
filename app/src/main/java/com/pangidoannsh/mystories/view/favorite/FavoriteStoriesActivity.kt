@@ -24,6 +24,9 @@ class FavoriteStoriesActivity : AppCompatActivity() {
 
         binding?.let {
             setSupportActionBar(it.toolbar)
+            it.toolbar.setNavigationOnClickListener {
+                finish()
+            }
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 

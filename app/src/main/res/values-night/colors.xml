@@ -5,4 +5,5 @@
     <color name="ic_clear_color">@color/white</color>
     <color name="bg_ic_clear_color">@color/gray600</color>
     <color name="primary_pressed">#091B49</color>
+
 </resources>

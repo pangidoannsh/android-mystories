@@ -10,7 +10,7 @@
     <string name="greeting">Hi, %s</string>
     <string name="name_hint">Name</string>
     <string name="email_hint">Email</string>
-    <string name="password_hint">Passowrd</string>
+    <string name="password_hint">Password</string>
     <string name="submit">Submit</string>
     <string name="not_have_account_yet">Not have account yet?</string>
     <string name="app_exit_warn">Press Back again to exit the app</string>
@@ -25,6 +25,7 @@
     <string name="date_story_dummy">12/10/2023</string>
     <string name="description_story_dummy">lorem ipsum dolor aowkaowkd awaawokdaw aowdk awokdawd awodkaw daowkdao dawd awd kawodkawd</string>
     <string name="label_gallery">Gallery</string>
+    <string name="use_location">Use Location</string>
     <string name="input_description_label">Description</string>
     <string name="permission_request_granted">Permission request granted</string>
     <string name="permission_request_danied">Permission request danied</string>
@@ -47,5 +48,10 @@
     <string name="yes">Yes</string>
     <string name="cancel">Cancel</string>
     <string name="email_already_taken">Email is already taken</string>
-    <string name="title_activity_stories_maps">StoriesMapsActivity</string>
+    <string name="cant_find_location">Can\'t find location</string>
+    <string name="title_activity_stories_maps" translatable="false">StoriesMapsActivity</string>
+    <string name="normal_type" translatable="false">Normal</string>
+    <string name="satellite_type" translatable="false">Satellite</string>
+    <string name="terrain_type" translatable="false">Terrain</string>
+    <string name="hybrid_type" translatable="false">Hybrid</string>
 </resources>

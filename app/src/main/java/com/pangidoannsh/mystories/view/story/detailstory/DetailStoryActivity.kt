@@ -29,7 +29,11 @@ class DetailStoryActivity : AppCompatActivity() {
         setSupportActionBar(binding?.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setHomeAsUpIndicator(getDrawable(R.drawable.ic_back_arrow));
-
+        binding?.let {
+            it.toolbar.setNavigationOnClickListener {
+                finish()
+            }
+        }
         setupComponents()
         setupObserver()
     }
@@ -48,7 +52,7 @@ class DetailStoryActivity : AppCompatActivity() {
                 bind.btnFavorite.setImageDrawable(
                     ContextCompat.getDrawable(
                         bind.btnFavorite.context,
-                        R.drawable.ic_favorite_full
+                        R.drawable.ic_favorite_active
                     )
                 )
             } else {

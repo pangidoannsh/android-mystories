@@ -38,7 +38,9 @@ interface ApiService {
 
     @GET("/v1/stories")
     fun getStories(
-        @Query("size") size: Int
+        @Query("size") size: Int,
+        @Query("page") page: Int = 1,
+        @Query("location") location: Int = 0
     ): Call<StoriesResponse>
 
     @Multipart
@@ -46,6 +48,8 @@ interface ApiService {
     fun createStory(
         @Part photo: MultipartBody.Part,
         @Part("description") description: RequestBody,
+        @Part("lat") lat: RequestBody? = null,
+        @Part("lon") lon: RequestBody? = null,
     ): Call<CreateStoryResponse>
 
     @GET("/v1/stories/{id}")
