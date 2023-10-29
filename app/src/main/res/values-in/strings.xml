@@ -6,7 +6,7 @@
     <string name="hello_blank_fragment">Halo fragmen kosong</string>
     <string name="register">Daftar</string>
     <string name="login">Masuk</string>
-    <string name="stories_title">Cerita Orang-orang</string>
+    <string name="stories_title">Cerita Orang</string>
     <string name="greeting">Hai, %s</string>
     <string name="name_hint">Nama</string>
     <string name="email_hint">Email</string>
@@ -51,5 +51,6 @@
     <string name="cancel">Batal</string>
     <string name="email_already_taken">Email sudah digunakan</string>
     <string name="cant_find_location">Tidak dapat menemukan lokasi</string>
+    <string name="retry">Coba lagi</string>
 
 </resources>

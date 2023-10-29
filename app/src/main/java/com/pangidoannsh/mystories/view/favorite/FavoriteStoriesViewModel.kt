@@ -11,7 +11,7 @@ class FavoriteStoriesViewModel(application: Application) : ViewModel() {
 
     fun getFavoriteStories(): LiveData<List<FavoriteStories>> = repository.getAllFavoriteStories()
 
-    fun deletFromFavoriteStories(storyId: String) {
+    fun deleteFromFavoriteStories(storyId: String) {
         repository.deleteFromFavorite(storyId)
     }
 }

@@ -91,7 +91,7 @@ class CreateStoryActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) { isLoading ->
             binding?.loadingBar?.visibility = if (isLoading) View.VISIBLE else View.GONE
         }
-        viewModel.mesasge.observe(this) {
+        viewModel.message.observe(this) {
             if (it.isNotEmpty()) Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         }
 //        viewModel.locationCaptured.observe(this) {

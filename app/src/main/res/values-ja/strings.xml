@@ -50,5 +50,6 @@
     <string name="cancel">キャンセル</string>
     <string name="email_already_taken">このメールアドレスはすでに使用されています。</string>
     <string name="cant_find_location">Tidak dapat menemukan lokasi</string>
+    <string name="retry">再試行\"</string>
 
 </resources>

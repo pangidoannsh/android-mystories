@@ -5,7 +5,7 @@
     <string name="hello_blank_fragment">Halo fragmen kosong</string>
     <string name="register">Daftar</string>
     <string name="login">Login</string>
-    <string name="stories_title">Kisah Wong-wong</string>
+    <string name="stories_title">Kisah Wong</string>
     <string name="greeting">Hai, %s</string>
     <string name="name_hint">Jeneng</string>
     <string name="email_hint">Surel</string>
@@ -50,5 +50,6 @@
     <string name="cancel">Batal</string>
     <string name="email_already_taken">Alamat surel wis diangkat</string>
     <string name="cant_find_location">Ora bisa nemu lokasi</string>
+    <string name="retry">Nyoba manéh</string>
 
 </resources>

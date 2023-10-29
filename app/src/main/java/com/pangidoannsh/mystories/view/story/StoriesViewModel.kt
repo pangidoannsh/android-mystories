@@ -6,12 +6,16 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.google.android.gms.maps.model.LatLng
 import com.pangidoannsh.mystories.R
 import com.pangidoannsh.mystories.data.api.ApiConfig
 import com.pangidoannsh.mystories.data.api.response.CreateStoryResponse
 import com.pangidoannsh.mystories.data.api.response.StoriesResponse
 import com.pangidoannsh.mystories.data.api.response.StoryResponse
+import com.pangidoannsh.mystories.data.repository.StoriesRepository
 import com.pangidoannsh.mystories.reduceFileImage
 import com.pangidoannsh.mystories.uriToFile
 import okhttp3.MediaType.Companion.toMediaType
@@ -23,14 +27,20 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class StoriesViewModel(private val application: Application) : ViewModel() {
+    private val storyRepo = StoriesRepository()
+
+    var stories: LiveData<PagingData<StoryResponse>> =
+        storyRepo.getStoriesPaging().cachedIn(viewModelScope)
+
+
     private val _listStories = MutableLiveData<List<StoryResponse>>()
     val listStories: LiveData<List<StoryResponse>> = _listStories
 
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
-    private val _mesasge = MutableLiveData<String>()
-    val mesasge: LiveData<String> = _mesasge
+    private val _message = MutableLiveData<String>()
+    val message: LiveData<String> = _message
 
     private val _isCreated = MutableLiveData<Boolean>()
     val isCreated: LiveData<Boolean> = _isCreated
@@ -39,6 +49,7 @@ class StoriesViewModel(private val application: Application) : ViewModel() {
 
     private val _locationCaptured = MutableLiveData(false)
     val locationCaptured: LiveData<Boolean> = _locationCaptured
+
     fun setLocationCaptured(isCaptured: Boolean) {
         _locationCaptured.value = isCaptured
     }
@@ -153,7 +164,7 @@ class StoriesViewModel(private val application: Application) : ViewModel() {
     }
 
     private fun setMessage(message: String) {
-        _mesasge.value = message
+        _message.value = message
     }
 
     private fun setListStories(stories: List<StoryResponse>) {

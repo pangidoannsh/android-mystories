@@ -17,4 +17,5 @@ interface StoriesDao {
 
     @Query("DELETE FROM favorite_stories WHERE id= :id")
     fun deleteFavorite(id: String)
+
 }

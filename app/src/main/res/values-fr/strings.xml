@@ -51,5 +51,6 @@
     <string name="cancel">Annuler</string>
     <string name="email_already_taken">L\'adresse e-mail est déjà prise</string>
     <string name="cant_find_location">Impossible de trouver l\'emplacement</string>
+    <string name="retry">Réessayer</string>
 
 </resources>

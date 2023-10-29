@@ -46,6 +46,8 @@ android {
 }
 
 dependencies {
+    implementation("androidx.paging:paging-runtime-ktx:3.1.0")
+
     implementation("androidx.room:room-common:2.5.2")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.android.gms:play-services-location:15.0.1")

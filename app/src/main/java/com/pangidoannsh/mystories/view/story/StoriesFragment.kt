@@ -6,7 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.paging.LoadState
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.pangidoannsh.mystories.adapter.LoadingStateAdapter
+import com.pangidoannsh.mystories.adapter.StoryAdapter
 import com.pangidoannsh.mystories.databinding.FragmentStoriesBinding
 import com.pangidoannsh.mystories.view.ViewModelFactory
 
@@ -28,7 +31,6 @@ class StoriesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getListStories()
         setupObserver()
         setupListLayout()
     }
@@ -40,18 +42,39 @@ class StoriesFragment : Fragment() {
     }
 
     fun updateListStories() {
-        viewModel.getListStories()
+//        viewModel.getListStories()
     }
 
     private fun setupObserver() {
-        viewModel.listStories.observe(viewLifecycleOwner) { listStories ->
-            setupListLayout()
-            binding?.rvStories?.adapter = StoryAdapter(listStories)
-        }
-        viewModel.isLoading.observe(viewLifecycleOwner) {
-            binding?.loadingBar?.visibility = if (it) View.VISIBLE else View.GONE
-        }
+        val adapter = StoryAdapter()
+        binding?.rvStories?.adapter = adapter.withLoadStateFooter(
+            footer = LoadingStateAdapter {
+                adapter.retry()
+            }
+        )
+        setupListLayout()
 
+        viewModel.stories.observe(viewLifecycleOwner) {
+            adapter.submitData(lifecycle, it)
+        }
+        binding?.let { bind ->
+            adapter.addLoadStateListener { loadStates ->
+                when (loadStates.source.refresh) {
+                    is LoadState.Loading -> {
+                        bind.loadingBar.visibility = View.VISIBLE
+                    }
+
+                    is LoadState.NotLoading -> {
+                        bind.loadingBar.visibility = View.GONE
+                    }
+
+                    else -> {}
+                }
+            }
+        }
+//        viewModel.isLoading.observe(viewLifecycleOwner) {
+//            binding?.loadingBar?.visibility = if (it) View.VISIBLE else View.GONE
+//        }
     }
 
     private fun setupListLayout() {

@@ -1,4 +1,4 @@
-package com.pangidoannsh.mystories.view.story
+package com.pangidoannsh.mystories.adapter
 
 import android.app.Activity
 import android.content.Intent
@@ -12,18 +12,19 @@ import com.pangidoannsh.mystories.data.StoryInterface
 import com.pangidoannsh.mystories.databinding.AdapterStoryBinding
 import com.pangidoannsh.mystories.view.story.detailstory.DetailStoryActivity
 
-class StoryAdapter(
+class FavoriteAdapter(
     private var listStories: List<StoryInterface>
-) : RecyclerView.Adapter<StoryAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<FavoriteAdapter.ViewHolder>() {
+
     class ViewHolder(var binding: AdapterStoryBinding) : RecyclerView.ViewHolder(binding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StoryAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteAdapter.ViewHolder {
         val binding =
             AdapterStoryBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun onBindViewHolder(holder: StoryAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: FavoriteAdapter.ViewHolder, position: Int) {
         val story = listStories[position]
 
 
@@ -51,9 +52,9 @@ class StoryAdapter(
                 val optionsCompat: ActivityOptionsCompat =
                     ActivityOptionsCompat.makeSceneTransitionAnimation(
                         holder.itemView.context as Activity,
-                        Pair(holder.binding?.storyImage, "image"),
-                        Pair(holder.binding?.storyDescription, "description"),
-                        Pair(holder.binding?.storyName, "name"),
+                        Pair(holder.binding.storyImage, "image"),
+                        Pair(holder.binding.storyDescription, "description"),
+                        Pair(holder.binding.storyName, "name"),
                     )
                 holder.itemView.context.startActivity(toDetail, optionsCompat.toBundle())
             }

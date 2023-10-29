@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.pangidoannsh.mystories.adapter.FavoriteAdapter
+import com.pangidoannsh.mystories.adapter.LoadingStateAdapter
+import com.pangidoannsh.mystories.adapter.StoryAdapter
 import com.pangidoannsh.mystories.databinding.ActivityFavoriteStoriesBinding
 import com.pangidoannsh.mystories.view.ViewModelFactory
-import com.pangidoannsh.mystories.view.story.StoryAdapter
 
 class FavoriteStoriesActivity : AppCompatActivity() {
     private var _binding: ActivityFavoriteStoriesBinding? = null
@@ -34,12 +36,10 @@ class FavoriteStoriesActivity : AppCompatActivity() {
     }
 
     private fun setupObserver() {
+        setupListLayout()
         viewModel.getFavoriteStories().observe(this) { stories ->
             setupListLayout()
-            binding?.let {
-                it.rvStories.adapter = StoryAdapter(stories)
-                it.notFound.visibility = if (stories.isEmpty()) View.VISIBLE else View.GONE
-            }
+            binding?.rvStories?.adapter = FavoriteAdapter(stories)
         }
     }
 

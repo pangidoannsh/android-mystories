@@ -50,5 +50,6 @@
     <string name="cancel">Batal</string>
     <string name="email_already_taken">Alamat emel sudah diambil</string>
     <string name="cant_find_location">Tidak dapat mencari lokasi</string>
+    <string name="retry">Cuba semula</string>
 
 </resources>
