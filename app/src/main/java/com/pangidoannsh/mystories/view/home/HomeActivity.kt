@@ -13,7 +13,7 @@ import com.pangidoannsh.mystories.view.ViewModelFactory
 import com.pangidoannsh.mystories.view.favorite.FavoriteStoriesActivity
 import com.pangidoannsh.mystories.view.maps.StoriesMapsActivity
 import com.pangidoannsh.mystories.view.settings.SettingsActivity
-import com.pangidoannsh.mystories.view.story.CreateStoryActivity
+import com.pangidoannsh.mystories.view.story.createstory.CreateStoryActivity
 import com.pangidoannsh.mystories.view.story.StoriesFragment
 import java.util.Locale
 
@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
                     false
                 ) == true
             ) {
+//                Toast.makeText(this,getString(R.string.success_create_story),Toast.LENGTH_SHORT).show()
                 val navHostFragment =
                     supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
                 val storiesFragment =

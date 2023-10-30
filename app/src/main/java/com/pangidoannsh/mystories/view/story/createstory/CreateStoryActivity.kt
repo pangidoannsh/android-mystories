@@ -1,4 +1,4 @@
-package com.pangidoannsh.mystories.view.story
+package com.pangidoannsh.mystories.view.story.createstory
 
 import android.Manifest
 import android.content.Intent
@@ -22,6 +22,7 @@ import com.pangidoannsh.mystories.view.camera.CameraActivity
 import com.pangidoannsh.mystories.view.camera.CameraActivity.Companion.CAMERAX_RESULT
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices
+import com.pangidoannsh.mystories.view.story.StoriesViewModel
 
 class CreateStoryActivity : AppCompatActivity() {
 
@@ -32,7 +33,7 @@ class CreateStoryActivity : AppCompatActivity() {
 
     private var currentImageUri: Uri? = null
 
-    private val viewModel by viewModels<StoriesViewModel> {
+    private val viewModel by viewModels<CreateStoryViewModel> {
         ViewModelFactory.getInstance(application)
     }
 
@@ -94,13 +95,6 @@ class CreateStoryActivity : AppCompatActivity() {
         viewModel.message.observe(this) {
             if (it.isNotEmpty()) Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         }
-//        viewModel.locationCaptured.observe(this) {
-//            if (!it) {
-//                binding?.let { bind ->
-//                    bind.cbUseLocation.isChecked = false
-//                }
-//            }
-//        }
 
     }
 

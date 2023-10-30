@@ -17,6 +17,10 @@ class FavoriteRepository(application: Application) {
         storiesDao = db.storiesDao()
     }
 
+    fun isStoryFavorite(id: String): LiveData<Boolean> {
+        return storiesDao.isStoryFavorite(id)
+    }
+
     fun getAllFavoriteStories(): LiveData<List<FavoriteStories>> = storiesDao.getFavoriteStories()
 
     fun getFavoriteStory(storyId: String): LiveData<FavoriteStories> = storiesDao.getStory(storyId)
@@ -31,9 +35,10 @@ class FavoriteRepository(application: Application) {
         executorService.execute { storiesDao.deleteFavorite(storyId) }
     }
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: FavoriteRepository? = null
+
         @JvmStatic
         fun getInstance(application: Application): FavoriteRepository {
             if (INSTANCE == null) {

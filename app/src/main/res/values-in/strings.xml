@@ -52,5 +52,7 @@
     <string name="email_already_taken">Email sudah digunakan</string>
     <string name="cant_find_location">Tidak dapat menemukan lokasi</string>
     <string name="retry">Coba lagi</string>
+    <string name="detail">Detail</string>
+    <string name="share_subject">Bagikan Cerita</string>
 
 </resources>

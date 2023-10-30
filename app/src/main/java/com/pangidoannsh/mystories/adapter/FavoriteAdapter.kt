@@ -46,6 +46,7 @@ class FavoriteAdapter(
                     putExtra(DetailStoryActivity.EXTRA_NAME, story.name)
                     putExtra(DetailStoryActivity.EXTRA_DESCRIPTION, story.description)
                     putExtra(DetailStoryActivity.EXTRA_PHOTO_URL, story.photoUrl)
+                    putExtra(DetailStoryActivity.EXTRA_CREATED_AT, story.createdAt)
                 }
 
 

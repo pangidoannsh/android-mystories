@@ -25,7 +25,5 @@ data class FavoriteStories(
     override var photoUrl: String? = null,
 
     @ColumnInfo(name = "createdAt")
-    val createdAt: String
-
-
+    override  val createdAt: String
 ) : Parcelable, StoryInterface

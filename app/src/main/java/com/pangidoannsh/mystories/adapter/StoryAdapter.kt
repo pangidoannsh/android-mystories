@@ -50,6 +50,7 @@ class StoryAdapter :
                     putExtra(DetailStoryActivity.EXTRA_NAME, story.name)
                     putExtra(DetailStoryActivity.EXTRA_DESCRIPTION, story.description)
                     putExtra(DetailStoryActivity.EXTRA_PHOTO_URL, story.photoUrl)
+                    putExtra(DetailStoryActivity.EXTRA_CREATED_AT, story.createdAt)
                 }
 
 
@@ -66,7 +67,7 @@ class StoryAdapter :
     }
 
     companion object {
-        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryResponse>() {
+        val DIFF_CALLBACK = object : DiffUtil.ItemCallback<StoryResponse>() {
             override fun areItemsTheSame(oldItem: StoryResponse, newItem: StoryResponse): Boolean {
                 return oldItem == newItem
             }

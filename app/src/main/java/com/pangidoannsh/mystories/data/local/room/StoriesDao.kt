@@ -12,6 +12,9 @@ interface StoriesDao {
     @Query("SELECT * FROM favorite_stories WHERE id= :id")
     fun getStory(id: String): LiveData<FavoriteStories>
 
+    @Query("SELECT EXISTS(SELECT * FROM favorite_stories WHERE id = :id)")
+    fun isStoryFavorite(id: String): LiveData<Boolean>
+
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertFavorite(story: FavoriteStories)
 

@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.activityViewModels
 import androidx.paging.LoadState
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -62,19 +63,21 @@ class StoriesFragment : Fragment() {
                 when (loadStates.source.refresh) {
                     is LoadState.Loading -> {
                         bind.loadingBar.visibility = View.VISIBLE
+                        bind.failureMsg.visibility = View.GONE
                     }
 
                     is LoadState.NotLoading -> {
                         bind.loadingBar.visibility = View.GONE
+                        bind.failureMsg.visibility = View.GONE
                     }
-
+                    is LoadState.Error ->{
+                        bind.loadingBar.visibility = View.GONE
+                        bind.failureMsg.visibility = View.VISIBLE
+                    }
                     else -> {}
                 }
             }
         }
-//        viewModel.isLoading.observe(viewLifecycleOwner) {
-//            binding?.loadingBar?.visibility = if (it) View.VISIBLE else View.GONE
-//        }
     }
 
     private fun setupListLayout() {

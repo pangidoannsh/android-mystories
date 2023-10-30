@@ -38,7 +38,7 @@ data class StoryResponse(
     override val photoUrl: String? = null,
 
     @field:SerializedName("createdAt")
-    val createdAt: String,
+    override val createdAt: String,
 
     @field:SerializedName("name")
     override val name: String,

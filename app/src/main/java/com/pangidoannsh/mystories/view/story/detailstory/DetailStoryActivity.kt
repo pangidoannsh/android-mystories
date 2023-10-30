@@ -1,7 +1,9 @@
 package com.pangidoannsh.mystories.view.story.detailstory
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
@@ -36,13 +38,12 @@ class DetailStoryActivity : AppCompatActivity() {
         }
         setupComponents()
         setupObserver()
+        setupAction()
     }
 
     private fun setupObserver() {
-        viewModel.getFavoriteStory()?.observe(this) { story ->
-            val isFavorite = story !== null
-            setIconBtnFavorite(isFavorite)
-            btnFavoriteAction(isFavorite)
+        viewModel.isFavorite.observe(this) {
+            setIconBtnFavorite(it)
         }
     }
 
@@ -66,11 +67,10 @@ class DetailStoryActivity : AppCompatActivity() {
         }
     }
 
-    private fun btnFavoriteAction(isFavorite: Boolean) {
+    private fun setupAction() {
         binding?.let { bind ->
             bind.btnFavorite.setOnClickListener {
-                if (isFavorite) viewModel.removeFavorite()
-                else viewModel.setFavorite()
+                viewModel.changeFavoriteStatus()
             }
         }
     }
@@ -96,6 +96,21 @@ class DetailStoryActivity : AppCompatActivity() {
                             .fitCenter()
                     )
                     .into(bind.imageStory)
+                bind.btnShare.setOnClickListener {
+                    val intentShare = Intent(Intent.ACTION_SEND)
+                    intentShare.apply {
+                        type = "text/plain"
+                        putExtra(
+                            Intent.EXTRA_SUBJECT,
+                            resources.getString(R.string.share_subject)
+                        )
+                        putExtra(
+                            Intent.EXTRA_TEXT,
+                            resources.getString(R.string.share_description, story.photoUrl)
+                        )
+                    }
+                    startActivity(intentShare)
+                }
             }
         }
 
@@ -108,6 +123,7 @@ class DetailStoryActivity : AppCompatActivity() {
         val photoUrl = intent.getStringExtra(EXTRA_PHOTO_URL)
         val description = intent.getStringExtra(EXTRA_DESCRIPTION)
         val createdAt = intent.getStringExtra(EXTRA_CREATED_AT)
+
         return mapStoryToFavorite(
             StoryResponse(
                 id ?: "",

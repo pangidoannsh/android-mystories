@@ -47,7 +47,7 @@ class FavoriteStoriesActivity : AppCompatActivity() {
         val layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
         binding?.let { bind ->
             bind.rvStories.layoutManager = layoutManager
-            bind.rvStories.setHasFixedSize(true)
+//            bind.rvStories.setHasFixedSize(true)
         }
     }
 
