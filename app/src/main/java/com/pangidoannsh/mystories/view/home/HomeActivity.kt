@@ -13,7 +13,7 @@ import com.pangidoannsh.mystories.view.ViewModelFactory
 import com.pangidoannsh.mystories.view.favorite.FavoriteStoriesActivity
 import com.pangidoannsh.mystories.view.maps.StoriesMapsActivity
 import com.pangidoannsh.mystories.view.settings.SettingsActivity
-import com.pangidoannsh.mystories.view.story.CreateStoryActivity
+import com.pangidoannsh.mystories.view.story.createstory.CreateStoryActivity
 import com.pangidoannsh.mystories.view.story.StoriesFragment
 import java.util.Locale
 
@@ -43,7 +43,8 @@ class HomeActivity : AppCompatActivity() {
                     HomeActivity::class.java.simpleName,
                     "check fragmetn : ${storiesFragment.toString()}"
                 )
-                storiesFragment?.updateListStories()
+                finish()
+                startActivity(intent)
             }
         }
     }

@@ -36,13 +36,12 @@ class DetailStoryActivity : AppCompatActivity() {
         }
         setupComponents()
         setupObserver()
+        btnFavoriteAction()
     }
 
     private fun setupObserver() {
-        viewModel.getFavoriteStory()?.observe(this) { story ->
-            val isFavorite = story !== null
-            setIconBtnFavorite(isFavorite)
-            btnFavoriteAction(isFavorite)
+        viewModel.isFavoriteStory.observe(this){
+            setIconBtnFavorite(it)
         }
     }
 
@@ -66,11 +65,10 @@ class DetailStoryActivity : AppCompatActivity() {
         }
     }
 
-    private fun btnFavoriteAction(isFavorite: Boolean) {
+    private fun btnFavoriteAction() {
         binding?.let { bind ->
             bind.btnFavorite.setOnClickListener {
-                if (isFavorite) viewModel.removeFavorite()
-                else viewModel.setFavorite()
+                viewModel.changeStatusFavorite()
             }
         }
     }

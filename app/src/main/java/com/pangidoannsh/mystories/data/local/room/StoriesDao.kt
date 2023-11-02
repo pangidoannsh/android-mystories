@@ -6,6 +6,9 @@ import com.pangidoannsh.mystories.data.local.entity.FavoriteStories
 
 @Dao
 interface StoriesDao {
+    @Query("SELECT EXISTS(SELECT * FROM FAVORITE_STORIES WHERE id = :id)")
+    fun isFavoriteStory(id: String): LiveData<Boolean>
+
     @Query("SELECT * FROM favorite_stories ORDER BY createdAt DESC")
     fun getFavoriteStories(): LiveData<List<FavoriteStories>>
 

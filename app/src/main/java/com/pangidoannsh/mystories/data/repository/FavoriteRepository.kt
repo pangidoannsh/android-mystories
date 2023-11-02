@@ -27,13 +27,16 @@ class FavoriteRepository(application: Application) {
         }
     }
 
+    fun isFavoriteStory(id: String): LiveData<Boolean> = storiesDao.isFavoriteStory(id)
+
     fun deleteFromFavorite(storyId: String) {
         executorService.execute { storiesDao.deleteFavorite(storyId) }
     }
 
-    companion object{
+    companion object {
         @Volatile
         private var INSTANCE: FavoriteRepository? = null
+
         @JvmStatic
         fun getInstance(application: Application): FavoriteRepository {
             if (INSTANCE == null) {

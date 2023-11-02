@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.switchMap
 import com.pangidoannsh.mystories.data.api.ApiConfig
 import com.pangidoannsh.mystories.data.api.response.DetailStoryResponse
 import com.pangidoannsh.mystories.data.local.entity.FavoriteStories
@@ -13,9 +14,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class DetailStoryViewModel(application: Application) :
+class DetailStoryViewModel(
+    private val favoriteRepo:FavoriteRepository
+) :
     ViewModel() {
-    private val favoriteRepo = FavoriteRepository.getInstance(application)
 
     private val _story = MutableLiveData<FavoriteStories>()
     val storyData: LiveData<FavoriteStories> = _story
@@ -25,9 +27,11 @@ class DetailStoryViewModel(application: Application) :
         getStoryDetail()
     }
 
-    fun getFavoriteStory() = storyData.value?.let { favoriteRepo.getFavoriteStory(it.id) }
+    val isFavoriteStory = storyData.switchMap {
+        favoriteRepo.isFavoriteStory(it.id)
+    }
 
-    fun setFavorite() {
+    fun changeStatusFavorite() {
         storyData.value?.let {
             val story = FavoriteStories(
                 id = it.id,
@@ -36,15 +40,16 @@ class DetailStoryViewModel(application: Application) :
                 description = it.description,
                 createdAt = it.createdAt,
             )
-            favoriteRepo.addFavorite(story)
+            if (isFavoriteStory.value as Boolean) {
+                favoriteRepo.deleteFromFavorite(it.id)
+            } else {
+                favoriteRepo.addFavorite(story)
+            }
         }
     }
 
-    fun removeFavorite() {
-        storyData.value?.let {
-            favoriteRepo.deleteFromFavorite(it.id)
-        }
-    }
+//    fun getFavoriteStory() = storyData.value?.let { favoriteRepo.getFavoriteStory(it.id) }
+
 
     private fun getStoryDetail() {
         storyData.value?.let { thisStory ->

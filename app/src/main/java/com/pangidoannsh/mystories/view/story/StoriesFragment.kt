@@ -41,10 +41,6 @@ class StoriesFragment : Fragment() {
         _binding = null
     }
 
-    fun updateListStories() {
-//        viewModel.getListStories()
-    }
-
     private fun setupObserver() {
         val adapter = StoryAdapter()
         binding?.rvStories?.adapter = adapter.withLoadStateFooter(
@@ -62,10 +58,18 @@ class StoriesFragment : Fragment() {
                 when (loadStates.source.refresh) {
                     is LoadState.Loading -> {
                         bind.loadingBar.visibility = View.VISIBLE
+                        bind.tvError.visibility = View.GONE
+
                     }
 
                     is LoadState.NotLoading -> {
                         bind.loadingBar.visibility = View.GONE
+                        bind.tvError.visibility = View.GONE
+                    }
+
+                    is LoadState.Error -> {
+                        bind.loadingBar.visibility = View.GONE
+                        bind.tvError.visibility = View.VISIBLE
                     }
 
                     else -> {}

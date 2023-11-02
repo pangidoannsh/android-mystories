@@ -1,4 +1,4 @@
-package com.pangidoannsh.mystories.view.story
+package com.pangidoannsh.mystories.view.story.createstory
 
 import android.Manifest
 import android.content.Intent
@@ -22,6 +22,7 @@ import com.pangidoannsh.mystories.view.camera.CameraActivity
 import com.pangidoannsh.mystories.view.camera.CameraActivity.Companion.CAMERAX_RESULT
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices
+import com.pangidoannsh.mystories.view.story.StoriesViewModel
 
 class CreateStoryActivity : AppCompatActivity() {
 
@@ -32,7 +33,7 @@ class CreateStoryActivity : AppCompatActivity() {
 
     private var currentImageUri: Uri? = null
 
-    private val viewModel by viewModels<StoriesViewModel> {
+    private val viewModel by viewModels<CreateStoryViewModel> {
         ViewModelFactory.getInstance(application)
     }
 
@@ -94,13 +95,13 @@ class CreateStoryActivity : AppCompatActivity() {
         viewModel.message.observe(this) {
             if (it.isNotEmpty()) Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         }
-//        viewModel.locationCaptured.observe(this) {
-//            if (!it) {
-//                binding?.let { bind ->
-//                    bind.cbUseLocation.isChecked = false
-//                }
-//            }
-//        }
+        viewModel.locationCaptured.observe(this) {
+            if (!it) {
+                binding?.let { bind ->
+                    bind.cbUseLocation.isChecked = false
+                }
+            }
+        }
 
     }
 
@@ -193,7 +194,7 @@ class CreateStoryActivity : AppCompatActivity() {
                     viewModel.setLatLngStory(location.latitude, location.longitude)
                     viewModel.setLocationCaptured(true)
                 } else {
-//                    viewModel.setLocationCaptured(false)
+                    viewModel.setLocationCaptured(false)
                     Toast.makeText(this, getString(R.string.cant_find_location), Toast.LENGTH_SHORT)
                         .show()
                 }
