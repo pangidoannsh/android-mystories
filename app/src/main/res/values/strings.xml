@@ -55,4 +55,7 @@
     <string name="terrain_type" translatable="false">Terrain</string>
     <string name="hybrid_type" translatable="false">Hybrid</string>
     <string name="retry">Retry</string>
+    <string name="detail">Detail</string>
+    <string name="share_subject">Share Story</string>
+    <string name="share_description" translatable="false">Hi, lets see this story!\n%s</string>
 </resources>

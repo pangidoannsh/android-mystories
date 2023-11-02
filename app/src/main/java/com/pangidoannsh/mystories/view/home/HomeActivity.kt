@@ -35,6 +35,7 @@ class HomeActivity : AppCompatActivity() {
                     false
                 ) == true
             ) {
+//                Toast.makeText(this,getString(R.string.success_create_story),Toast.LENGTH_SHORT).show()
                 val navHostFragment =
                     supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
                 val storiesFragment =

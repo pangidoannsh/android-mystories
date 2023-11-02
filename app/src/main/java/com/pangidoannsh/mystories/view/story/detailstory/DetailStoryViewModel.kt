@@ -15,23 +15,21 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class DetailStoryViewModel(
-    private val favoriteRepo:FavoriteRepository
-) :
-    ViewModel() {
+    private val favoriteRepo: FavoriteRepository
+) : ViewModel() {
 
     private val _story = MutableLiveData<FavoriteStories>()
-    val storyData: LiveData<FavoriteStories> = _story
+    private val storyData: LiveData<FavoriteStories> = _story
 
     fun initStoryData(initStory: FavoriteStories) {
         _story.value = initStory
-        getStoryDetail()
     }
 
-    val isFavoriteStory = storyData.switchMap {
-        favoriteRepo.isFavoriteStory(it.id)
+    val isFavorite = storyData.switchMap {
+        favoriteRepo.isStoryFavorite(it.id)
     }
 
-    fun changeStatusFavorite() {
+    fun changeFavoriteStatus() {
         storyData.value?.let {
             val story = FavoriteStories(
                 id = it.id,
@@ -40,48 +38,12 @@ class DetailStoryViewModel(
                 description = it.description,
                 createdAt = it.createdAt,
             )
-            if (isFavoriteStory.value as Boolean) {
+
+            if (isFavorite.value as Boolean) {
                 favoriteRepo.deleteFromFavorite(it.id)
             } else {
                 favoriteRepo.addFavorite(story)
             }
-        }
-    }
-
-//    fun getFavoriteStory() = storyData.value?.let { favoriteRepo.getFavoriteStory(it.id) }
-
-
-    private fun getStoryDetail() {
-        storyData.value?.let { thisStory ->
-            val client = ApiConfig.getApiService().getStoryById(thisStory.id)
-            client.enqueue(object : Callback<DetailStoryResponse> {
-                override fun onResponse(
-                    call: Call<DetailStoryResponse>,
-                    response: Response<DetailStoryResponse>
-                ) {
-                    if (response.isSuccessful) {
-                        response.body()?.let {
-                            _story.value = FavoriteStories(
-                                id = it.story.id,
-                                name = it.story.name,
-                                photoUrl = it.story.photoUrl,
-                                createdAt = it.story.createdAt,
-                                description = it.story.description
-                            )
-                        }
-                    } else {
-                        Log.e(
-                            "DetailStoryViewModel",
-                            response.body()?.message ?: "Error tidak diketahui"
-                        )
-                    }
-                }
-
-                override fun onFailure(call: Call<DetailStoryResponse>, t: Throwable) {
-                    Log.e("DetailStoryViewModel", t.message.toString())
-                }
-
-            })
         }
     }
 }

@@ -51,5 +51,7 @@
     <string name="email_already_taken">このメールアドレスはすでに使用されています。</string>
     <string name="cant_find_location">Tidak dapat menemukan lokasi</string>
     <string name="retry">再試行\"</string>
+    <string name="detail">詳細</string>
+    <string name="share_subject">ストーリーをシェア</string>
 
 </resources>

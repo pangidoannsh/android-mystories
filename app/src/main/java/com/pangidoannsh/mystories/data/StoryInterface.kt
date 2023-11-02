@@ -5,6 +5,7 @@ interface StoryInterface {
     val name: String
     val description: String
     val photoUrl: String?
+    val createdAt:String
 }
 
 //"id": "story-FvU4u0Vp2S3PMsFg",

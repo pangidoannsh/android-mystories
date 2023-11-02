@@ -38,7 +38,6 @@ class FavoriteStoriesActivity : AppCompatActivity() {
     private fun setupObserver() {
         setupListLayout()
         viewModel.getFavoriteStories().observe(this) { stories ->
-            setupListLayout()
             binding?.rvStories?.adapter = FavoriteAdapter(stories)
         }
     }

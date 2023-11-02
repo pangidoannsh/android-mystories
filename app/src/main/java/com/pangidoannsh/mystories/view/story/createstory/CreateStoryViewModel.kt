@@ -2,7 +2,6 @@ package com.pangidoannsh.mystories.view.story.createstory
 
 import android.app.Application
 import android.net.Uri
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,9 +19,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class CreateStoryViewModel(
-    private val application: Application
-):ViewModel() {
+class CreateStoryViewModel(private val application: Application):ViewModel() {
     private val _isLoading = MutableLiveData<Boolean>()
     val isLoading: LiveData<Boolean> = _isLoading
 
@@ -95,14 +92,14 @@ class CreateStoryViewModel(
                             setMessage(application.getString(R.string.success_create_story))
                             setIsCreated(true)
                         } else {
-                            Log.e("StoriesFragment", "Gagal")
+//                            Log.e("StoriesFragment", "Gagal")
                             setMessage("application.getString(R.string.failure_create_story)")
                         }
                     }
                 }
 
                 override fun onFailure(call: Call<CreateStoryResponse>, t: Throwable) {
-                    Log.e("StoriesFragment", t.message.toString())
+//                    Log.e("StoriesFragment", t.message.toString())
 
                     setIsLoading(false)
                     setMessage(t.message.toString())
@@ -124,4 +121,5 @@ class CreateStoryViewModel(
     private fun setIsCreated(created: Boolean) {
         _isCreated.value = created
     }
+
 }

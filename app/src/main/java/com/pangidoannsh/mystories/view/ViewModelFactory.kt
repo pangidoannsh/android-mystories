@@ -40,7 +40,8 @@ class ViewModelFactory private constructor(private val application: Application)
         } else if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(application) as T
         } else if (modelClass.isAssignableFrom(StoriesViewModel::class.java)) {
-            return StoriesViewModel(StoriesRepository()) as T
+            val repository = StoriesRepository()
+            return StoriesViewModel( repository) as T
         } else if (modelClass.isAssignableFrom(UserViewModel::class.java)) {
             return UserViewModel(application) as T
         } else if (modelClass.isAssignableFrom(SettingsViewModel::class.java)) {
@@ -48,10 +49,11 @@ class ViewModelFactory private constructor(private val application: Application)
         } else if (modelClass.isAssignableFrom(FavoriteStoriesViewModel::class.java)) {
             return FavoriteStoriesViewModel(FavoriteRepository.getInstance(application)) as T
         } else if (modelClass.isAssignableFrom(DetailStoryViewModel::class.java)) {
-            return DetailStoryViewModel(FavoriteRepository.getInstance(application)) as T
+            val repository = FavoriteRepository.getInstance(application)
+            return DetailStoryViewModel(repository) as T
         } else if (modelClass.isAssignableFrom(StoriesMapViewModel::class.java)) {
             return StoriesMapViewModel(application) as T
-        } else if (modelClass.isAssignableFrom(CreateStoryViewModel::class.java)) {
+        }else if (modelClass.isAssignableFrom(CreateStoryViewModel::class.java)) {
             return CreateStoryViewModel(application) as T
         }
 

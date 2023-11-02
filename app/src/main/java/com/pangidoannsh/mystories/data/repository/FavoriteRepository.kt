@@ -17,6 +17,10 @@ class FavoriteRepository(application: Application) {
         storiesDao = db.storiesDao()
     }
 
+    fun isStoryFavorite(id: String): LiveData<Boolean> {
+        return storiesDao.isStoryFavorite(id)
+    }
+
     fun getAllFavoriteStories(): LiveData<List<FavoriteStories>> = storiesDao.getFavoriteStories()
 
     fun getFavoriteStory(storyId: String): LiveData<FavoriteStories> = storiesDao.getStory(storyId)
